@@ -2,4 +2,7 @@
 <resources>
     <string name="hello">Hello World, finserDroid!</string>
     <string name="app_name">finserDroid</string>
+    
+	<string name="lblMenuSettings">Ustawienia</string>
+	<string name="activitySettingsScreen">Ustawienia</string>
 </resources>

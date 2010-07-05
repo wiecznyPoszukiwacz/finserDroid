@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android">
+
+	<PreferenceCategory android:title="Dane konta">
+		<EditTextPreference
+			android:name="login"
+			android:summary="login do Twojego konta w serwisie"
+			android:title="login"
+			android:key="serviceUserName"
+			
+			android:dialogTitle="login"
+			android:dialogMessage="podaj login którego używasz do zalogowania się w serwisie"
+			
+			/>
+
+		<EditTextPreference
+			android:name="hasło"
+			android:summary="hasło do Twojego konta w serwisie"
+			android:title="hasło"
+			android:key="servicePassword"
+
+			android:dialogTitle="hasło"
+			android:dialogMessage="podaj hasło którego używasz do zalogowania się w serwisie"
+
+			/>
+	
+	</PreferenceCategory>
+
+	<PreferenceCategory android:title="Domyślne konta">
+		
+		<EditTextPreference
+			android:name="konto gotówkowe"
+			android:summary="domyślne konto przy płatności gotówką"
+			android:title="konto gotówkowe"
+			android:key="defaultCashAccount"
+			
+			android:dialogTitle="konto gotówkowe"
+			android:dialogMessage="podaj nazwę domyślnego konta używanego do rejestracji transakcji gotówką"
+			
+			/>
+
+		<EditTextPreference
+			android:name="konto kartowe"
+			android:summary="domyślne konto przy płatności kartą"
+			android:title="konto kartowe"
+			android:key="defaultCardAccount"
+			
+			android:dialogTitle="konto kartowe"
+			android:dialogMessage="podaj nazwę domyślnego konta używanego do rejestracji transakcji kartą"
+			
+			/>
+		
+		
+	</PreferenceCategory>
+
+</PreferenceScreen>
