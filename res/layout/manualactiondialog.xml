@@ -4,18 +4,29 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     >
-	<TextView  
+  
+  	<TextView  
 	    android:layout_width="fill_parent" 
 	    android:layout_height="wrap_content" 
-	    android:text="Witaj, to ciągle jest DEV (:"
+	    android:text="@string/hello"
 	    />
 	
-	<Button
-		android:id="@+id/manualAction"
-		android:layout_width="wrap_content"
+	<EditText
+		android:id="@+id/manualCommandText"
+		android:layout_width="fill_parent"
 		android:layout_height="wrap_content"
-		android:text="Podaj własną komendę"
-		/>    
-	    
-	    
+		android:text="Gotowe!"
+
+		/>
+	
+	<Button
+		android:id="@+id/sendManualAction"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:text="Gotowe!"
+		
+	/>
+  
+  
+  
 </LinearLayout>

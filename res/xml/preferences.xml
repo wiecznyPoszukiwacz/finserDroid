@@ -25,7 +25,21 @@
 
 			/>
 	
-	</PreferenceCategory>
+		<ListPreference 
+			android:name="rodzaj api"
+			android:summary="usługa, do której wysłane będą informacje"
+			android:title="rodzaj api"
+			android:key="apiCode"			
+
+			android:dialogTitle="Wybierz API" 
+ 
+
+			android:entryValues="@array/apicodes" 
+			android:entries="@array/apilabels" 
+ 
+			android:negativeButtonText="Anuluj"
+			/>
+</PreferenceCategory>
 
 	<PreferenceCategory android:title="Domyślne konta">
 		
