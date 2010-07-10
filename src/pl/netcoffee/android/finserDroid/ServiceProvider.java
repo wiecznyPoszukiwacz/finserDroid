@@ -8,6 +8,7 @@ import org.apache.http.NameValuePair;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
 
@@ -74,6 +75,33 @@ public class ServiceProvider {
 		 
 		return null;
 		
+	}
+	
+	// We don't always need to send POST requests, remove last is one 
+	// of that kind of operations
+	
+	protected HttpResponse makeHttpRequest(String url){
+		HttpResponse response = null;
+	    
+		HttpClient httpclient = new DefaultHttpClient();  
+	    
+		HttpGet httpget = new HttpGet(url);
+		
+	    httpget.setHeader("User-Agent", "finserDroid/1.0");
+	    httpget.setHeader("Accept", "application/json, text/javascript, */*");
+	    httpget.setHeader("X-Finser-API", "0.5");
+	    httpget.setHeader("Cookie", cookie);
+	    
+	    try {
+	    	response = httpclient.execute(httpget);
+	    	return response;
+	    } catch (ClientProtocolException e) {  
+	         
+	    } catch (IOException e) {  
+	          
+	    }
+	    
+	    return null;
 	}
 
 	

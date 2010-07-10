@@ -46,6 +46,13 @@ public class FinserPlAPI extends ServiceProvider{
 		return true;
 
 	}
+	public boolean removeLast(){
+		login();
+		
+		makeHttpRequest("http://api.finser.pl/remove/");
+		return true;
+		
+	}
 	
 	
 }
