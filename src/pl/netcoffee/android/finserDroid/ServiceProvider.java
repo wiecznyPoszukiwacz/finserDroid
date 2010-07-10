@@ -55,8 +55,11 @@ public class ServiceProvider {
 	  
 	    httppost.setHeader("User-Agent", "finserDroid/1.0");
 	    httppost.setHeader("Accept", "application/json, text/javascript, */*");
-	    httppost.setHeader("X-Finser-API", "0.5");
-	    httppost.setHeader("Cookie", cookie);
+	    // Czy to nie powinno byc realizowane juz w klasie potomnej? FinserPlAPI?
+            httppost.setHeader("X-Finser-API", "0.5");
+	    // Warto wiedziec ile osob bedzie korzystac (finser zbiera te dane, moze udostepnia)
+            httppost.setHeader("User-Agent", "finserDroid");
+            httppost.setHeader("Cookie", cookie);
 	    
 	    try {  
 	        // Add your data  
