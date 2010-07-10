@@ -1,3 +1,5 @@
 .DS_Store
 !bin/finserDroid.apk
 bin/**/*
+default.properties
+bin/**
