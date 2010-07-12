@@ -80,7 +80,8 @@ public class finserDroid extends Activity {
 		   dialogCardPaid.setContentView(R.layout.cardpaid);
 		   dialogCardPaid.setTitle("Płatność kartą");
 		   
-		   
+		   Button sendCardPaidButton = (Button)dialogCardPaid.findViewById(R.id.cardPaidSendButton);
+		   sendCardPaidButton.setOnClickListener(doCardPaidSend);
 		   return  dialogCardPaid;
 	   default:
 		   dialog = null;
@@ -110,6 +111,33 @@ public class finserDroid extends Activity {
 		   dismissDialog(DIALOG_MANUAL_COMMAND);
 	   }
    };
+   public OnClickListener doCardPaidSend = new OnClickListener() {
+	
+	@Override
+	public void onClick(View v) {
+		// Potrzebuje pobrać nazwę konta kartowego z preferencji
+		String command = "$" + "";
+		String kwota_string;
+		EditText kwota_edit_text = (EditText) dialogCardPaid.findViewById(R.id.cardPaidAmount);
+		kwota_string = kwota_edit_text.getText().toString();
+		try{
+			int kwota = Integer.parseInt(kwota_string);
+		} catch( NumberFormatException e) {
+			// Tutaj jakiś popup i przerwanie wykonywania
+		}
+		finally {
+			//pass 
+		}
+		command += kwota_string;
+		
+		String opis_string;
+		EditText opis_edit_text = (EditText)dialogCardPaid.findViewById(R.id.cardPaidDesc);
+		opis_string = opis_edit_text.toString();
+		//Dalsza część
+		
+		
+	}
+};
    
    public OnClickListener manualCommand = new OnClickListener(){
 
