@@ -1,6 +1,6 @@
 package pl.netcoffee.android.finserDroid;
 
-
+import android.content.Context;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
@@ -14,6 +14,8 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 
 public class finserDroid extends Activity {
 	
@@ -115,25 +117,36 @@ public class finserDroid extends Activity {
 	
 	@Override
 	public void onClick(View v) {
+		// W ogóle nieprzetestowane
+		Context context = v.getContext();
+		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+		
+		String karta = prefs.getString("defaultCardAccount", "");
 		// Potrzebuje pobrać nazwę konta kartowego z preferencji
-		String command = "$" + "";
+		String command = "$" + karta + " ";
 		String kwota_string;
 		EditText kwota_edit_text = (EditText) dialogCardPaid.findViewById(R.id.cardPaidAmount);
 		kwota_string = kwota_edit_text.getText().toString();
 		try{
 			int kwota = Integer.parseInt(kwota_string);
+			// Nie wiem dokładnie jak tu jest z formatami
+			// Nie mam czasu sprawdzić jak parsuje tutaj
+			// finser wymaga 0,33 a nie 0.33.. itd
 		} catch( NumberFormatException e) {
 			// Tutaj jakiś popup i przerwanie wykonywania
 		}
 		finally {
 			//pass 
 		}
-		command += kwota_string;
+		command += kwota_string + " ";
 		
 		String opis_string;
 		EditText opis_edit_text = (EditText)dialogCardPaid.findViewById(R.id.cardPaidDesc);
 		opis_string = opis_edit_text.toString();
-		//Dalsza część
+		
+		command += opis_string;
+		
+		sendCommand(command);
 		
 		
 	}
