@@ -59,6 +59,12 @@ public class FinserPlAPI extends ServiceProvider{
             makeHttpRequest("http://api.finser.pl/logout");
             return true;
         }
+        public boolean cardPaid(int amount, String desc){
+            String command = Integer.toString(amount)+ desc + "#karta";
+            if (sendCommand(command))
+                return true;
+            return false;
+        }
 	
 	
 }

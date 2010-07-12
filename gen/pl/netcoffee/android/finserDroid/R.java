@@ -18,14 +18,20 @@ public final class R {
         public static final int icon=0x7f020000;
     }
     public static final class id {
-        public static final int launchSettings=0x7f080003;
-        public static final int manualAction=0x7f080000;
-        public static final int manualCommandText=0x7f080001;
-        public static final int sendManualAction=0x7f080002;
+        public static final int LinearLayout01=0x7f080000;
+        public static final int cardPaidAmount=0x7f080001;
+        public static final int cardPaidButton=0x7f080005;
+        public static final int cardPaidDesc=0x7f080002;
+        public static final int cardPaidSendButton=0x7f080003;
+        public static final int launchSettings=0x7f080008;
+        public static final int manualAction=0x7f080004;
+        public static final int manualCommandText=0x7f080006;
+        public static final int sendManualAction=0x7f080007;
     }
     public static final class layout {
-        public static final int main=0x7f030000;
-        public static final int manualactiondialog=0x7f030001;
+        public static final int cardpaid=0x7f030000;
+        public static final int main=0x7f030001;
+        public static final int manualactiondialog=0x7f030002;
     }
     public static final class menu {
         public static final int homemenu=0x7f070000;

@@ -18,8 +18,10 @@ import android.widget.Toast;
 public class finserDroid extends Activity {
 	
 	static final int DIALOG_MANUAL_COMMAND = 1;
+	static final int DIALOG_CARD_PAID = 2;
 	
 	private Dialog dialogManualCmd;
+	private Dialog dialogCardPaid;
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -28,6 +30,9 @@ public class finserDroid extends Activity {
         
         Button button = (Button)findViewById(R.id.manualAction);
         button.setOnClickListener(manualCommand);
+        
+        Button cardPaidButton = (Button)findViewById(R.id.cardPaidButton);
+        cardPaidButton.setOnClickListener(cardPaidListener);
         
     }
     
@@ -59,14 +64,28 @@ public class finserDroid extends Activity {
    
    
    protected Dialog onCreateDialog(int id){
-	   dialogManualCmd = new Dialog(this);
-	   dialogManualCmd.setContentView(R.layout.manualactiondialog);
-	   dialogManualCmd.setTitle("Ręczna akcja");
-	
-	   Button regi = (Button)dialogManualCmd.findViewById(R.id.sendManualAction);
-	   regi.setOnClickListener(doSendManualCommand);
-	   
-	   return dialogManualCmd;
+	   Dialog dialog;
+	   switch(id){
+	   case DIALOG_MANUAL_COMMAND:
+		   dialogManualCmd = new Dialog(this);
+		   dialogManualCmd.setContentView(R.layout.manualactiondialog);
+		   dialogManualCmd.setTitle("Ręczna akcja");
+		
+		   Button regi = (Button)dialogManualCmd.findViewById(R.id.sendManualAction);
+		   regi.setOnClickListener(doSendManualCommand);
+		   
+		   return dialogManualCmd;
+	   case DIALOG_CARD_PAID:
+		   dialogCardPaid = new Dialog(this);
+		   dialogCardPaid.setContentView(R.layout.cardpaid);
+		   dialogCardPaid.setTitle("Płatność kartą");
+		   
+		   
+		   return  dialogCardPaid;
+	   default:
+		   dialog = null;
+	   }
+	   return dialog;
    }
    
    protected void sendCommand(String command){
@@ -97,11 +116,15 @@ public class finserDroid extends Activity {
 	   @Override 
 	   public void onClick(View v){
 		   showDialog(DIALOG_MANUAL_COMMAND);
-	   }
-
-
-	   
+	   }	   
    };
+   public OnClickListener cardPaidListener = new OnClickListener(){
+		
+		@Override
+		public void onClick(View v) {
+			showDialog(DIALOG_CARD_PAID);
+		}
+	};
 
     
 }

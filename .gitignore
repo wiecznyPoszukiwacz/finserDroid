@@ -3,3 +3,5 @@
 bin/**/*
 default.properties
 bin/**
+bin/pl/netcoffee/android/finserDroid/**/*
+bin/pl/netcoffee/android/**/*
